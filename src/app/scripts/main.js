@@ -56,25 +56,26 @@ geotab.addin.dvirPro = function () {
      * @param {object} freshState - The page state object allows access to URL, page navigation and global group filter.
     */
     focus: function (freshApi, freshState) {
-       // getting the current user to display in the UI
-        freshApi.getSession(session => {
-          freshApi.call('Get', {
-            typeName: 'Device',
-            search: {
-              id: freshState.device.id
-            }
-          }, result => {
-            let device = result[0];
-  
-            elAddin.querySelector('#dvirPro-driver').textContent = session.userName;
-            elAddin.querySelector('#dvirPro-vehicle').textContent = device.name;
-  
-            // show main content
-            elAddin.className = elAddin.className.replace('hidden', '').trim();
-          }, err => {
-            console.error(err);
-          });
+      window.open('https://google.com', '_blank');
+      // getting the current user to display in the UI
+      freshApi.getSession(session => {
+        freshApi.call('Get', {
+          typeName: 'Device',
+          search: {
+            id: freshState.device.id
+          }
+        }, result => {
+          let device = result[0];
+
+          elAddin.querySelector('#dvirPro-driver').textContent = session.userName;
+          elAddin.querySelector('#dvirPro-vehicle').textContent = device.name;
+
+          // show main content
+          elAddin.className = elAddin.className.replace('hidden', '').trim();
+        }, err => {
+          console.error(err);
         });
+      });
     },
 
     /**
