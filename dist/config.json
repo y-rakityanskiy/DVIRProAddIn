@@ -1,15 +1,15 @@
 {
   "name": "DVIR Pro",
   "supportEmail": "test@test.com",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "items": [
     {
-      "url": "https://cdn.jsdelivr.net/gh/y-rakityanskiy/DVIRProAddIn@0.0.5/dist/dvirPro.html",
+      "url": "https://raw.githubusercontent.com/y-rakityanskiy/DVIRProAddIn/master/dist/dvirPro.html",
       "path": "DriveAppLink/",
       "menuName": {
         "en": "DVIR Pro"
       },
-      "icon": "https://cdn.jsdelivr.net/gh/y-rakityanskiy/DVIRProAddIn@0.0.5/dist/images/icon.svg"
+      "icon": "https://raw.githubusercontent.com/y-rakityanskiy/DVIRProAddIn/master/dist/images/icon.svg"
     }
   ],
   "onStartup": true,
