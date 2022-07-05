@@ -1,0 +1,22 @@
+{
+  "name": "DVIR Pro",
+  "supportEmail": "test@test.com",
+  "version": "0.0.1",
+  "items": [{
+    "url": "dvirPro.html",
+    "path": "DriveAppLink/",
+    "menuName": {
+      "en": "DVIR Pro"
+    },
+    "icon": "images/icon.svg"
+  }],
+  
+  "onStartup": true,
+  "onShutdown": true,
+  "dev": {
+    "root": "dvirPro",
+    "dist": {
+      "host": "https://cdn.jsdelivr.net/gh/y-rakityanskiy/DVIRProAddIn@master/dist/"
+    }
+  }
+}
