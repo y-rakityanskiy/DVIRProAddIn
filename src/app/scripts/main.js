@@ -4,9 +4,11 @@
 geotab.addin.dvirPro = function () {
   'use strict';
 
-  
-    // the root container
-    var elAddin = document.getElementById('app');
+  // the root container
+  var elAddin = document.getElementById('app');
+
+  // Hide the default "Asset Inspection" button
+  document.querySelector('#dashboard-dvir').remove();
   
   return {
     
@@ -37,9 +39,6 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
      */
     initialize: function (freshApi, freshState, initializeCallback) {
-      // Hide the default "Asset Inspection" button
-      document.querySelector('#dashboard-dvir').remove();
-
       // Loading translations if available
       if (freshState.translate) {
         freshState.translate(elAddin || '');
