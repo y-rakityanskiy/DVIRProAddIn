@@ -6,6 +6,7 @@ geotab.addin.dvirPro = function () {
 
   // the root container
   var elAddin = document.getElementById('app');
+  document.querySelector('#dashboard-dvir').remove();
   
   return {
     
@@ -41,7 +42,7 @@ geotab.addin.dvirPro = function () {
         freshState.translate(elAddin || '');
       }
       // MUST call initializeCallback when done any setup
-        initializeCallback();
+      initializeCallback();
     },
 
     /**
@@ -90,23 +91,23 @@ geotab.addin.dvirPro = function () {
       // hide main content
       elAddin.className += ' hidden';
     },
-      /**
-       * Shutdown Add-Ins are executed when the final driver logs out of the Drive App.
-       * If there are co-drivers, and one of the co-drivers logs out (while other drivers remain logged in to the Drive App),
-       * the shutdown Add-In is not executed.
-       * Additionally, the Add-In is expected to return a promise since shutdown Add-Ins have a 15-second time limit
-       * to perform their function before the Add-Ins time out and the logout process is completed.
-       * The time limit prevents the application from freezing in the middle of the logout process as a result of faulty Add-Ins.
-       * @param {object} api - The GeotabApi object for making calls to MyGeotab.
-       * @param {object} state - The page state object allows access to URL, page navigation and global group filter.
-       * @param {function} resolve - call this somewhere so the promise resolves
-      */
-      shutdown: function (api, state, callback) {
-          return new Promise (resolve => {
-            // Do work, make any api calls etc
+    /**
+     * Shutdown Add-Ins are executed when the final driver logs out of the Drive App.
+     * If there are co-drivers, and one of the co-drivers logs out (while other drivers remain logged in to the Drive App),
+     * the shutdown Add-In is not executed.
+     * Additionally, the Add-In is expected to return a promise since shutdown Add-Ins have a 15-second time limit
+     * to perform their function before the Add-Ins time out and the logout process is completed.
+     * The time limit prevents the application from freezing in the middle of the logout process as a result of faulty Add-Ins.
+     * @param {object} api - The GeotabApi object for making calls to MyGeotab.
+     * @param {object} state - The page state object allows access to URL, page navigation and global group filter.
+     * @param {function} resolve - call this somewhere so the promise resolves
+    */
+    shutdown: function (api, state, callback) {
+      return new Promise (resolve => {
+        // Do work, make any api calls etc
 
-            resolve(); // eventually need to call this somewhere so the promise resolves
-          });
-      }
+        resolve(); // eventually need to call this somewhere so the promise resolves
+      });
+    }
   };
 };
