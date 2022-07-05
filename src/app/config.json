@@ -16,7 +16,7 @@
   "dev": {
     "root": "dvirPro",
     "dist": {
-      "host": "https://cdn.jsdelivr.net/gh/y-rakityanskiy/DVIRProAddIn@master@latest/dist/"
+      "host": "https://cdn.jsdelivr.net/gh/y-rakityanskiy/DVIRProAddIn/dist/"
     }
   }
 }
