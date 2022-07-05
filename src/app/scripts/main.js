@@ -22,8 +22,8 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
     */
     startup: function (freshApi, freshState, initializeCallback) {
-        // MUST call initializeCallback when done any setup
-          initializeCallback();
+      // MUST call initializeCallback when done any setup
+      initializeCallback();
     },
     
     /**
@@ -37,6 +37,9 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
      */
     initialize: function (freshApi, freshState, initializeCallback) {
+      // Hide the default "Asset Inspection" button
+      document.querySelector('#dashboard-dvir').remove();
+
       // Loading translations if available
       if (freshState.translate) {
         freshState.translate(elAddin || '');
