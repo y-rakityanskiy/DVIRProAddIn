@@ -25,7 +25,7 @@ geotab.addin.dvirPro = function () {
     */
     startup: function (freshApi, freshState, initializeCallback) {
       // MUST call initializeCallback when done any setup
-      document.querySelector('#dashboard-dvir').remove();
+      //document.querySelector('#dashboard-dvir').remove();
       initializeCallback();
     },
     
@@ -40,7 +40,7 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
      */
     initialize: function (freshApi, freshState, initializeCallback) {
-      document.querySelector('#dashboard-dvir').remove();
+      //document.querySelector('#dashboard-dvir').remove();
       // Loading translations if available
       if (freshState.translate) {
         freshState.translate(elAddin || '');
@@ -61,7 +61,7 @@ geotab.addin.dvirPro = function () {
      * @param {object} freshState - The page state object allows access to URL, page navigation and global group filter.
     */
     focus: function (freshApi, freshState) {
-      document.querySelector('#dashboard-dvir').remove();
+      //document.querySelector('#dashboard-dvir').remove();
        // getting the current user to display in the UI
         freshApi.getSession(session => {
           freshApi.call('Get', {
@@ -92,7 +92,7 @@ geotab.addin.dvirPro = function () {
      * @param {object} freshState - The page state object allows access to URL, page navigation and global group filter.
     */
     blur: function () {
-      document.querySelector('#dashboard-dvir').remove();
+      //document.querySelector('#dashboard-dvir').remove();
       // hide main content
       elAddin.className += ' hidden';
     },
