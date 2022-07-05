@@ -6,7 +6,7 @@ geotab.addin.dvirPro = function () {
 
   // the root container
   var elAddin = document.getElementById('app');
-  document.querySelector('#dashboard-dvir').remove();
+  document.querySelector('#dashboard-dvir').classList.add('__disabled');
   
   return {
     
