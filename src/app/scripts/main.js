@@ -63,8 +63,9 @@ geotab.addin.dvirPro = function () {
       }
 
       // getting the current user to display in the UI
-      freshApi.getSession(session => {
+      freshApi.getSession((session, ss) => {
         console.log(`----- Session: ${session}`);
+        console.log(`----- Session: ${ss}`);
         freshApi.call('Get', {
           typeName: 'Device',
           search: {
