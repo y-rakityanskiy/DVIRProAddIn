@@ -23,7 +23,6 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
     */
     startup: function (freshApi, freshState, initializeCallback) {
-      freshApi.mobile.notify('startup', 'startup');
       // MUST call initializeCallback when done any setup
       initializeCallback();
     },
@@ -39,11 +38,6 @@ geotab.addin.dvirPro = function () {
      *        for display to the user.
      */
     initialize: function (freshApi, freshState, initializeCallback) {
-      freshApi.mobile.notify('initialize', 'initialize');
-      // Loading translations if available
-      if (freshState.translate) {
-        freshState.translate(elAddin || '');
-      }
       // MUST call initializeCallback when done any setup
       initializeCallback();
     },
@@ -60,8 +54,14 @@ geotab.addin.dvirPro = function () {
      * @param {object} freshState - The page state object allows access to URL, page navigation and global group filter.
     */
     focus: function (freshApi, freshState) {
-      //window.open('https://google.com', '_blank');
-      freshApi.mobile.notify('focus', 'focus');
+      var startBtn = document.getElementById('dvirPro-startBtn');
+      if (startBtn) {
+        startBtn.addEventListener('click', function (event) {
+          startBtn.preventDefault();
+          window.open('https://google.com', '_blank');
+        });
+      }
+
       // getting the current user to display in the UI
       freshApi.getSession(session => {
         freshApi.call('Get', {
