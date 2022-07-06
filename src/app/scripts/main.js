@@ -61,19 +61,19 @@ geotab.addin.dvirPro = function () {
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
           event.preventDefault();
-          window.open(`https://dvir_pro.millmountaincapital.com?server=${this.server},sessionId=${this.session.sessionId},database=${this.session.database},userName=${encodeURIComponent(this.session.userName)}`, '_system');
+          window.open(`https://dvir_pro.millmountaincapital.com?server=${server},sessionId=${session.sessionId},database=${session.database},userName=${encodeURIComponent(session.userName)}`, '_system');
         });
       }
 
       // getting the current user to display in the UI
-      freshApi.getSession((session, server) => {
-        this.session = session
-        this.server = server
+      freshApi.getSession((currentSession, currentServer) => {
+        session = currentSession
+        server = currentServer
 
-        elAddin.querySelector('#dvirPro-driver').textContent = this.session.userName;
-        elAddin.querySelector('#dvirPro-session-id').textContent = this.session.sessionId;
-        elAddin.querySelector('#dvirPro-database').textContent = this.session.database;
-        elAddin.querySelector('#dvirPro-server').textContent = this.server;
+        elAddin.querySelector('#dvirPro-driver').textContent = session.userName;
+        elAddin.querySelector('#dvirPro-session-id').textContent = session.sessionId;
+        elAddin.querySelector('#dvirPro-database').textContent = session.database;
+        elAddin.querySelector('#dvirPro-server').textContent = server;
 
         freshApi.call('Get', {
           typeName: 'Device',
