@@ -58,7 +58,7 @@ geotab.addin.dvirPro = function () {
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
           event.preventDefault();
-          window.open('https://google.com', '_blank');
+          window.open('https://dvir_pro.millmountaincapital.com', '_system');
         });
       }
 
