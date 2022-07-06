@@ -63,7 +63,9 @@ geotab.addin.dvirPro = function () {
       }
 
       // getting the current user to display in the UI
-      freshApi.getSession(session => {
+      freshApi.getSession(session, s => {
+        console.log(`----- Session: ${session}`)
+        console.log(`----- Server: ${s}`)
         freshApi.call('Get', {
           typeName: 'Device',
           search: {
@@ -73,6 +75,9 @@ geotab.addin.dvirPro = function () {
           let device = result[0];
 
           elAddin.querySelector('#dvirPro-driver').textContent = session.userName;
+          elAddin.querySelector('#dvirPro-session-id').textContent = session.sessionId;
+          elAddin.querySelector('#dvirPro-database').textContent = session.database;
+          elAddin.querySelector('#dvirPro-host').textContent = session.userName;
           elAddin.querySelector('#dvirPro-vehicle').textContent = device.name;
 
           // show main content
