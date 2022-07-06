@@ -9,6 +9,9 @@ geotab.addin.dvirPro = function () {
   document.querySelector('#dashboard-dvir').classList.add('__disabled');
   document.querySelector('#menu-dvir').remove();
   
+  var session = null
+  var server = null
+
   return {
     
     /**
@@ -58,14 +61,20 @@ geotab.addin.dvirPro = function () {
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
           event.preventDefault();
-          window.open('https://dvir_pro.millmountaincapital.com', '_system');
+          window.open(`https://dvir_pro.millmountaincapital.com?server=${server},sessionId=${session.sessionId},database=${session.database},userName=${encodeURIComponent(session.userName)}`, '_system');
         });
       }
 
       // getting the current user to display in the UI
-      freshApi.getSession((session, ss) => {
-        console.log(`----- Session: ${session}`);
-        console.log(`----- Session: ${ss}`);
+      freshApi.getSession((session, server) => {
+        this.session = session
+        this.server = server
+
+        elAddin.querySelector('#dvirPro-driver').textContent = this.session.userName;
+        elAddin.querySelector('#dvirPro-session-id').textContent = this.session.sessionId;
+        elAddin.querySelector('#dvirPro-database').textContent = this.session.database;
+        elAddin.querySelector('#dvirPro-server').textContent = this.server;
+
         freshApi.call('Get', {
           typeName: 'Device',
           search: {
@@ -73,13 +82,7 @@ geotab.addin.dvirPro = function () {
           }
         }, result => {
           let device = result[0];
-
-          elAddin.querySelector('#dvirPro-driver').textContent = session.userName;
-          elAddin.querySelector('#dvirPro-session-id').textContent = session.sessionId;
-          elAddin.querySelector('#dvirPro-database').textContent = session.database;
-          elAddin.querySelector('#dvirPro-host').textContent = session.userName;
           elAddin.querySelector('#dvirPro-vehicle').textContent = device.name;
-
           // show main content
           elAddin.className = elAddin.className.replace('hidden', '').trim();
         }, err => {
