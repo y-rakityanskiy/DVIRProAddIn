@@ -9,8 +9,8 @@ geotab.addin.dvirPro = function () {
   document.querySelector('#dashboard-dvir').classList.add('__disabled');
   document.querySelector('#menu-dvir').remove();
   
-  var session = null
-  var server = null
+  var session = null;
+  var server = null;
 
   return {
     
@@ -61,7 +61,7 @@ geotab.addin.dvirPro = function () {
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
           event.preventDefault();
-          window.open(`https://dvir_pro.millmountaincapital.com?server=${server},sessionId=${session.sessionId},database=${session.database},userName=${encodeURIComponent(session.userName)}`, '_system');
+          window.open(`https://dvir_pro.millmountaincapital.com?server=${this.server},sessionId=${this.session.sessionId},database=${this.session.database},userName=${encodeURIComponent(this.session.userName)}`, '_system');
         });
       }
 
