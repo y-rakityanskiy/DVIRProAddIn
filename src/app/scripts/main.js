@@ -57,7 +57,7 @@ geotab.addin.dvirPro = function () {
       var startBtn = document.getElementById('dvirPro-startBtn');
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
-          startBtn.preventDefault();
+          event.preventDefault();
           window.open('https://google.com', '_blank');
         });
       }
