@@ -10,11 +10,6 @@ geotab.addin.dvirPro = function () {
   var session = null;
   var server = null;
 
-  $('body').on('click', function(event){
-    event.preventDefault();
-    alert('Hello! I am an alert box!!');
-  });
-
   return {
     
     /**
@@ -78,6 +73,7 @@ geotab.addin.dvirPro = function () {
         elAddin.querySelector('#dvirPro-session-id').textContent = session.sessionId;
         elAddin.querySelector('#dvirPro-database').textContent = session.database;
         elAddin.querySelector('#dvirPro-server').textContent = server;
+        elAddin.querySelector('#dvirPro-vehicle-id').textContent = freshState.device.id;
 
         freshApi.call('Get', {
           typeName: 'Device',
@@ -87,6 +83,18 @@ geotab.addin.dvirPro = function () {
         }, result => {
           let device = result[0];
           elAddin.querySelector('#dvirPro-vehicle').textContent = device.name;
+        }, err => {
+          console.error(err);
+        });
+
+        freshApi.call('Get', {
+          typeName: 'User',
+          search: {
+            name: session.userName
+          }
+        }, result => {
+          let user = result[0];
+          elAddin.querySelector('#dvirPro-user-id').textContent = user.id;
           // show main content
           elAddin.className = elAddin.className.replace('hidden', '').trim();
         }, err => {
