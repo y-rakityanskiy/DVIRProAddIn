@@ -24,6 +24,6 @@
     visibility: hidden;
 }
 
-#new-inspection-pane, #new-inspection-address-panel, #new-inspection-save-panel {
+#new-inspection-panel, #new-inspection-address-panel, #new-inspection-save-panel {
     visibility: hidden
 }
