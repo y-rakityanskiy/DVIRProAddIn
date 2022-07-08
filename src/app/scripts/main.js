@@ -61,7 +61,7 @@ geotab.addin.dvirPro = function () {
       if (startBtn) {
         startBtn.addEventListener('click', function (event) {
           event.preventDefault();
-          let url = `dvir_pro://dvir_pro.millmountaincapital.com?server=${server}&sessionId=${session.sessionId}&database=${session.database}&userName=${encodeURIComponent(session.userName)}`;
+          let url = `dvirpro://dvir_pro.millmountaincapital.com?server=${server}&sessionId=${session.sessionId}&database=${session.database}&userName=${encodeURIComponent(session.userName)}`;
           window.open(url, '_system');
         });
       }
