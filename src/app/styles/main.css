@@ -23,3 +23,7 @@
 .view-dvir {
     visibility: hidden;
 }
+
+#new-inspection-pane, #new-inspection-address-panel, #new-inspection-save-panel {
+    visibility: hidden
+}
