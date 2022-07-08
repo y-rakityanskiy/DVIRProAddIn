@@ -1,3 +1,21 @@
 .hidden {
     display: none!important;
 }
+
+#menu-dvir {
+    color: #000;
+    background:#999;
+    pointer-events: none;
+}
+
+#dashboard-dvir {
+    pointer-events: none;
+}
+
+#dashboard-dvir .dashboard-header {
+    background:#bbb;
+}
+
+.create-dvir {
+    visibility: hidden;
+}
