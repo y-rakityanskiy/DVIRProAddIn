@@ -10,6 +10,11 @@ geotab.addin.dvirPro = function () {
   var session = null;
   var server = null;
 
+  $('body').on('click', function(event){
+    event.preventDefault();
+    alert('Hello! I am an alert box!!');
+  });
+
   return {
     
     /**
